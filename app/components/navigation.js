@@ -6,7 +6,7 @@ const MenuItem = ({ children }) => {
 
 export default function Navigation() {
     return (
-        <div className="fixed bottom-10 flex flex-row gap-3">
+        <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-3 ">
             <MenuItem>My Profile</MenuItem>
             <MenuItem>Technology & Information System - Assignments & Reflection</MenuItem>
         </div>
