@@ -10,7 +10,7 @@ const MenuItem = ({ children, click, setPageId, pageId }) => {
 export default function Navigation({ showProfile, setPageId }) {
     return (
         <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-3 ">
-            <MenuItem click={showProfile} setPageId={setPageId} pageId={'myprofile'}>My Profile</MenuItem>
+            <MenuItem click={showProfile} setPageId={setPageId} pageId={'myprofile'}>About Me, Work Experiences & Education</MenuItem>
             <MenuItem click={showProfile} setPageId={setPageId} pageId={'assignments'}><b>SECP1513</b> Technology & Information System - Assignments & Reflections</MenuItem>
         </div>
     )
