@@ -7,6 +7,9 @@ import {
   time,
 } from "framer-motion";
 import YouTubeEmbed from "./components/YouTubeEmbed";
+import Button from "./components/button";
+import TextButton from "./components/textbutton";
+import ImageCard from "./components/imagecard";
 
 const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
   return (
@@ -348,17 +351,9 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="flex flex-row sm:flex-row md:flex-col lg:flex-col gap-8 items-center justify-items-center sm:items-center sm:justify-items-center md:items-start md:justify-items-start lg:items-start lg:justify-items-start">
-          <Image
-            aria-hidden
-            src="/profile-1.png"
-            alt="profile"
-            className="rounded-full w-[50px] sm:w-[50px] md:w-[150px] lg:w-[150px] h-[50px] sm:h-[50px] md:h-[150px] lg:h-[150px] "
-            width={150}
-            height={150}
-          />
-          <p className="bg-gradient-to-b from-[#fff] from-30%  to-[#fff]/30 text-5xl sm:text-5xl md:text-7xl lg:text-7xl bg-clip-text text-transparent drop-shadow-[0_20px_35px_rgba(255,255,255,0.6)]">Hizwan Zameri</p>
-        </div>
+        <TextButton text="Download CV" />
+        <ImageCard image="/me.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
 
         <span className="text-sm">I'm a UI/UX Developer at <b>Fulkrum Interactive Technology</b>.<br></br>A Part Time Student at <b>Universiti Teknologi Malaysia</b>.</span>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
