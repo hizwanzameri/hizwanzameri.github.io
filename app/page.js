@@ -10,6 +10,8 @@ import YouTubeEmbed from "./components/YouTubeEmbed";
 import Button from "./components/button";
 import TextButton from "./components/textbutton";
 import ImageCard from "./components/imagecard";
+import AIButton from "./components/aibutton";
+import Navbar from "./components/navbar";
 
 const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
   return (
@@ -30,7 +32,7 @@ const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1',
           height={30}
         />
         {end ? false :
-          <div className="bg-white h-full w-[1px]"></div>
+          <div className="bg-white h-full w-px"></div>
         }
       </div>
       <div className="w-full flex flex-col">
@@ -209,7 +211,7 @@ const AssignmentItem = ({ index, title = 'Assignment 1', submittedOn = "20/1/202
           height={30}
         />
         {end ? false :
-          <div className="bg-white h-full w-[1px]"></div>
+          <div className="bg-white h-full w-px"></div>
         }
       </div>
       <div className="w-full">
@@ -245,7 +247,7 @@ const AssignmentItem = ({ index, title = 'Assignment 1', submittedOn = "20/1/202
 const Header = ({ children, subtitle }) => {
   return (
     <>
-      <span className="bg-gradient-to-b from-[#fff] from-30%  to-[#fff]/30 text-2xl bg-clip-text text-transparent ">
+      <span className="bg-linear-to-b from-white from-30%  to-white/30 text-2xl bg-clip-text text-transparent ">
         {children}
       </span>
       <span className="mt-2 mb-6 text-sm">
@@ -349,17 +351,24 @@ export default function Home() {
   const [pageId, setPageId] = useState('myprofile')
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <Navbar />
         <TextButton text="Download CV" />
-        <ImageCard image="/me.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <ImageCard image="/profile-1.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-
+<div className="blur-0 hover:blur-xs transition duration-300 ease-in-out">
+        <AIButton  width={200}
+  height={44}
+  strokeWidth={2}>
+        <span className="text-white font-semibold">Hello World</span>
+      </AIButton>
+      </div>
         <span className="text-sm">I'm a UI/UX Developer at <b>Fulkrum Interactive Technology</b>.<br></br>A Part Time Student at <b>Universiti Teknologi Malaysia</b>.</span>
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:--font-instrument-serif]">
           <li className="mb-2">
             Welcome to my portfolio{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+            <code className="bg-black/5 dark:bg-white/6 px-1 py-0.5 rounded-sm font-semibold">
               <a
                 className=""
                 href="https://hizwanzameri.github.io"
@@ -370,7 +379,7 @@ export default function Home() {
             .
           </li>
           <li className="mb-2">Visit my github profile{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+            <code className="bg-black/5 dark:bg-white/6 px-1 py-0.5 rounded-sm font-semibold">
               <a
                 className=""
                 href="https://github.com/hizwanzameri"
@@ -381,7 +390,7 @@ export default function Home() {
             .
           </li>
           <li>Visit my linkedin profile{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+            <code className="bg-black/5 dark:bg-white/6 px-1 py-0.5 rounded-sm font-semibold">
               <a
                 className=""
                 href="https://linkedin.com/in/hizwanzameri"
