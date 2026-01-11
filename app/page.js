@@ -12,6 +12,8 @@ import TextButton from "./components/textbutton";
 import ImageCard from "./components/imagecard";
 import AIButton from "./components/aibutton";
 import Navbar from "./components/navbar";
+import ShinyCard from "./components/shinycard";
+import QuickButtons from "./components/quickbuttons";
 
 const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
   return (
@@ -351,66 +353,33 @@ export default function Home() {
   const [pageId, setPageId] = useState('myprofile')
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
+      <img src="/grid-bg.png" alt="grid-img-bg" className="fixed top-0 right-0 sm:right-50 w-100" />
+      <main className="flex flex-col p-8 gap-8 items-center sm:items-start w-full lg:max-w-[768px] lg:mx-auto">
         <Navbar />
-        <TextButton text="Download CV" />
+        <QuickButtons />
+        <div className="flex flex-col mt-30 mb-10">
+        <span className="header-text gradient-text">Hizwan Zameri</span>
+        <span className="text-sm gradient-text">I code and design user interfaces</span>
+        <span className="text-md gradient-text mt-3">UI Developer at Fulkrum</span>
+        </div>
+        <div className="flex flex-col gap-2">
+          <span className="section-title-text">Currently</span>
+          <span className="text-sm">
+            Working as a UI Developer at Fulkrum Interactive Technology. Supported key projects UIs and core software development ranging from web application to mobile.
+          </span>
+        </div>
+        <div className="flex flex-col gap-2 w-full">
+          <span className="section-title-text">Featured Projects</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <ShinyCard title="Project 1" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <ShinyCard title="Project 2" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <ShinyCard title="Project 3" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          </div>
+        </div>
+        
         <ImageCard image="/profile-1.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-<div className="blur-0 hover:blur-xs transition duration-300 ease-in-out">
-        <AIButton  width={200}
-  height={44}
-  strokeWidth={2}>
-        <span className="text-white font-semibold">Hello World</span>
-      </AIButton>
-      </div>
-        <span className="text-sm">I'm a UI/UX Developer at <b>Fulkrum Interactive Technology</b>.<br></br>A Part Time Student at <b>Universiti Teknologi Malaysia</b>.</span>
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:--font-instrument-serif]">
-          <li className="mb-2">
-            Welcome to my portfolio{" "}
-            <code className="bg-black/5 dark:bg-white/6 px-1 py-0.5 rounded-sm font-semibold">
-              <a
-                className=""
-                href="https://hizwanzameri.github.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >hizwanzameri.github.io</a>
-            </code>
-            .
-          </li>
-          <li className="mb-2">Visit my github profile{" "}
-            <code className="bg-black/5 dark:bg-white/6 px-1 py-0.5 rounded-sm font-semibold">
-              <a
-                className=""
-                href="https://github.com/hizwanzameri"
-                target="_blank"
-                rel="noopener noreferrer"
-              >github.com/hizwanzameri</a>
-            </code>
-            .
-          </li>
-          <li>Visit my linkedin profile{" "}
-            <code className="bg-black/5 dark:bg-white/6 px-1 py-0.5 rounded-sm font-semibold">
-              <a
-                className=""
-                href="https://linkedin.com/in/hizwanzameri"
-                target="_blank"
-                rel="noopener noreferrer"
-              >linkedin.com/in/hizwanzameri</a>
-            </code>
-            .
-          </li>
-        </ol>
-        <span>More about me:</span>
-        <Navigation showProfile={setShowPopup} setPageId={setPageId} />
-        {
-          showPopup ? <Popup close={setShowPopup} >
-            {pageId == 'myprofile' ?
-              <MyProfile /> : <Assignments />
-            }
-
-          </Popup> : false
-        }
       </main>
 
     </div >

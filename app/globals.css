@@ -30,40 +30,97 @@
 }
 
 :root {
-  --background: #000000;
+  --background: #1B2D35;
   --foreground: #ededed;
+  --highlight: #1B2D35;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
+    --background: #1B2D35;
     --foreground: #ededed;
+    --highlight: #1B2D35;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* background: var(--background); */
   font-family: var(--font-albert-sans), Arial, Helvetica, sans-serif;
-  background: #000000;
+  /* background: #000000; */
+  background: linear-gradient(rgba(22, 52, 64, 1) 0%, rgba(122, 143, 152, 1) 160% );
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body::selection {
+  background-color: var(--highlight);
+  color: var(--foreground);
+}
+
+/* dark bg: linear-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)*/
+.dark-bg{
+  background: linear-gradient(rgba(22, 52, 64, 1) 40%, rgba(122, 143, 152, 1) 100% );
+}
+
+.gradient-text{
+  background: linear-gradient(to bottom, #AABAC1, #F5F5F5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fixed-navbar{
+  position: fixed;
+  margin: 0 auto;
+  top: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  max-width: 768px;
+}
+
+@media (max-width: 768px) {
+  .fixed-navbar {
+    display: none;
+  }
+}
+
+.bottom-quick-buttons{
+  position: fixed;
+  margin: 0 auto;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: fit-content;
 }
 
 .shiny-navbar {
   position: relative;
   padding: 10px 20px;
-  border-radius: 200px;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.fixed-navbar.shiny-navbar {
+  position: fixed;
+}
+
+.bottom-quick-buttons.shiny-navbar {
+  position: fixed;
+  padding: 10px 10px;
 }
 
 .shiny-stroke-mask {
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 200px;
   width: 100%;
   height: 100%;
   padding: 1px;
@@ -71,6 +128,10 @@ body {
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) border-box;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+}
+
+.navbar-radius{
+  border-radius: 200px;
 }
 
 .shiny-bg {
@@ -96,4 +157,40 @@ body {
   height: 12px;
   border-radius: 50%;
   background-color: #7EF1E4;
+}
+
+.header-text{
+  font-family: var(--font-instrument-serif);
+  font-size: 48px;
+}
+
+.shiny-card{
+  position: relative;
+  padding: 18px 18px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.card-radius{
+  border-radius: 20px;
+}
+
+.section-title-text{
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.card-title-text{
+  font-family: var(--font-instrument-serif);
+  font-size: 24px;
+}
+
+.card-body-text{
+  font-size: 14px;
+  font-weight: 400;
 }

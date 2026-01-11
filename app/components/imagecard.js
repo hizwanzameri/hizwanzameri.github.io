@@ -7,7 +7,7 @@ const height = "h-30";
       </div>
       <div className={"absolute "+height+" w-80 p-5 text-white"}>
       <div className="font-semibold text-lg">{title}</div>
-      <p className="font-thin text-sm">{description}</p>
+      <p className="font-light text-sm">{description}</p>
       </div>
     </div>
   )
