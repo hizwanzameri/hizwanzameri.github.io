@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import ShinyAnim from './shinyanim';
 
 const QuickButtons = () => {
     return (
         <div className="bottom-quick-buttons shiny-navbar navbar-radius shadow-lg hidden md:block">
             <div className="shiny-stroke-mask navbar-radius">
-                <div className="shiny-bg"></div>
+                <ShinyAnim index={0} />
             </div>
             <div className="flex flex-row gap-2 items-center justify-center gradient-text">
                 <Image src="/contact-btn.png" alt="contact button" width={54} height={54} />

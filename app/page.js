@@ -14,6 +14,11 @@ import AIButton from "./components/aibutton";
 import Navbar from "./components/navbar";
 import ShinyCard from "./components/shinycard";
 import QuickButtons from "./components/quickbuttons";
+import ShinyAnim from "./components/shinyanim";
+import HighlightCard from "./components/highlightcard";
+import Link from "next/link";
+import DarkTooltip from "./components/darktooltip";
+import MobileNavbar from "./components/mobilenavbar";
 
 const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
   return (
@@ -353,33 +358,43 @@ export default function Home() {
   const [pageId, setPageId] = useState('myprofile')
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen ">
-      <img src="/grid-bg.png" alt="grid-img-bg" className="fixed top-0 right-0 sm:right-50 w-100" />
-      <main className="flex flex-col p-8 gap-8 items-center sm:items-start w-full lg:max-w-[768px] lg:mx-auto">
-        <Navbar />
-        <QuickButtons />
-        <div className="flex flex-col mt-30 mb-10">
+    <div className="w-full overflow-x-hidden">
+      <img src="/grid-bg.png" alt="grid-img-bg" className="fixed top-0 right-0 lg:right-50 w-[400px]" />
+      <Navbar />
+      <MobileNavbar />
+      <QuickButtons />
+      <main className="flex flex-col pb-30 px-8 lg:px-0 gap-8 items-center w-full lg:max-w-[768px] lg:mx-auto">
+        <div className="flex flex-col mt-30 mb-10 w-full">
         <span className="header-text gradient-text">Hizwan Zameri</span>
-        <span className="text-sm gradient-text">I code and design user interfaces</span>
-        <span className="text-md gradient-text mt-3">UI Developer at Fulkrum</span>
+        <span className="text-md gradient-text">I code and design user interfaces</span>
+        <span className="text-lg gradient-text mt-3">UI Developer at Fulkrum</span>
         </div>
         <div className="flex flex-col gap-2">
           <span className="section-title-text">Currently</span>
-          <span className="text-sm">
+          <span className="text-md">
             Working as a UI Developer at Fulkrum Interactive Technology. Supported key projects UIs and core software development ranging from web application to mobile.
           </span>
         </div>
         <div className="flex flex-col gap-2 w-full">
           <span className="section-title-text">Featured Projects</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <ShinyCard title="Project 1" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-          <ShinyCard title="Project 2" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-          <ShinyCard title="Project 3" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <ShinyCard icon="/close-menu-btn.png" title="Project 1" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <ShinyCard icon="/close-menu-btn.png" title="Project 2" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <ShinyCard icon="/close-menu-btn.png" title="Project 3" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
           </div>
         </div>
-        
-        <ImageCard image="/profile-1.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-
+        <HighlightCard title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." minutesToRead="5" />
+        {/* <ImageCard image="/profile-1.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." /> */}
+        <div className="flex flex-col gap-2 w-full">
+          <span className="section-title-text">CONNECT</span>
+          <div className="flex flex-row gap-2 items-center">
+            <Link href="https://www.linkedin.com/in/hizwan-zameri-a3b1b1200/" className="text-sm gradient-text">Email</Link>
+            <Link href="https://www.instagram.com/hizwan.zameri/" className="text-sm gradient-text">X</Link>
+            <Link href="https://www.facebook.com/hizwan.zameri/" className="text-sm gradient-text">LinkedIn</Link>
+            <Link href="https://www.twitter.com/hizwan.zameri/" className="text-sm gradient-text">Github</Link>
+          </div>
+          <Link href="https://www.twitter.com/hizwan.zameri/" className="text-sm gradient-text">Share a thought</Link>
+        </div>
       </main>
 
     </div >
