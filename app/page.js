@@ -9,7 +9,7 @@ import {
 import YouTubeEmbed from "./components/YouTubeEmbed";
 import Button from "./components/button";
 import TextButton from "./components/textbutton";
-import ImageCard from "./components/imagecard";
+import AboutMeCard from "./components/aboutmecard";
 import AIButton from "./components/aibutton";
 import Navbar from "./components/navbar";
 import ShinyCard from "./components/shinycard";
@@ -19,6 +19,7 @@ import HighlightCard from "./components/highlightcard";
 import Link from "next/link";
 import DarkTooltip from "./components/darktooltip";
 import MobileNavbar from "./components/mobilenavbar";
+import AnimatedText from "./components/animatedtext";
 
 const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
   return (
@@ -358,16 +359,38 @@ export default function Home() {
   const [pageId, setPageId] = useState('myprofile')
 
   return (
-    <div className="w-full overflow-x-hidden">
-      <img src="/grid-bg.png" alt="grid-img-bg" className="fixed top-0 right-0 lg:right-50 w-[400px]" />
-      <Navbar />
-      <MobileNavbar />
-      <QuickButtons />
-      <main className="flex flex-col pb-30 px-8 lg:px-0 gap-8 items-center w-full lg:max-w-[768px] lg:mx-auto">
-        <div className="flex flex-col mt-30 mb-10 w-full">
-        <span className="header-text gradient-text">Hizwan Zameri</span>
-        <span className="text-md gradient-text">I code and design user interfaces</span>
-        <span className="text-lg gradient-text mt-3">UI Developer at Fulkrum</span>
+<>
+        <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-4 justify-start items-start mb-10 w-full">
+        <div className="flex flex-col flex-1">
+          <AnimatedText 
+            type="chars"
+            className="header-text gradient-text" 
+            style={{ minHeight: '1.5em' }}
+            animationConfig={{
+              duration: 0.8,
+              stagger: 0.03,
+              delay: 0,
+              ease: 'power2.out'
+            }}
+          >
+            Hizwan Zameri
+          </AnimatedText>
+          <AnimatedText 
+            type="words"
+            className="text-md gradient-text" 
+            style={{ minHeight: '1.5em' }}
+            animationConfig={{
+              duration: 0.6,
+              stagger: 0.05,
+              delay: 0.3,
+              ease: 'power2.out'
+            }}
+          >
+            I code and design user interfaces
+          </AnimatedText>
+          <span className="text-lg gradient-text mt-3">UI Developer at Fulkrum</span>
+        </div>
+        <AboutMeCard/>
         </div>
         <div className="flex flex-col gap-2">
           <span className="section-title-text">Currently</span>
@@ -395,8 +418,6 @@ export default function Home() {
           </div>
           <Link href="https://www.twitter.com/hizwan.zameri/" className="text-sm gradient-text">Share a thought</Link>
         </div>
-      </main>
-
-    </div >
+      </>
   );
 }

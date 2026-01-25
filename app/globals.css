@@ -52,7 +52,11 @@ body {
   /* background: var(--background); */
   font-family: var(--font-albert-sans), Arial, Helvetica, sans-serif;
   /* background: #000000; */
-  background: linear-gradient(rgba(22, 52, 64, 1) 0%, rgba(122, 143, 152, 1) 160% );
+  background: linear-gradient(180deg, rgba(22,52,64,1) 0%, rgba(122,143,152,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(22,52,64,1) 0%, rgba(122,143,152,1) 100%);
+  background: -moz-linear-gradient(top, rgba(22,52,64,1) 0%, rgba(122,143,152,1) 100%);
+  background: -o-linear-gradient(top, rgba(22,52,64,1) 0%, rgba(122,143,152,1) 100%);
+  background: -ms-linear-gradient(top, rgba(22,52,64,1) 0%, rgba(122,143,152,1) 100%);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -94,9 +98,10 @@ body::selection {
 .mobile-menu-container{
   position: fixed;
   padding: 0 20px;
-  bottom: 120px;
+  bottom: 160px;
   z-index: 100;
   width: 100%;
+  scroll-snap-type: x mandatory;
   overflow-x: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -106,6 +111,11 @@ body::selection {
 }
 
 .mobile-menu{
+  /* backdrop-filter: invert(88%) !important;
+  -webkit-backdrop-filter: invert(88%) !important;
+  -moz-backdrop-filter: invert(88%) !important;
+  -ms-backdrop-filter: invert(88%) !important;
+  -o-backdrop-filter: invert(88%) !important; */
   position: relative;
   width: max-content;
   box-sizing: border-box;
@@ -215,6 +225,7 @@ body::selection {
   height: 12px;
   border-radius: 50%;
   background-color: #7EF1E4;
+  box-shadow: 0 0 10px 0 rgba(126, 241, 228, 0.5);
 }
 
 .header-text{
@@ -278,7 +289,8 @@ body::selection {
 .mobile-navbar-tooltip{
   position: fixed;
   bottom: 40px;
-  left: 30px;
+  right: 120px;
   z-index: 100;
   width: fit-content;
 }
+
