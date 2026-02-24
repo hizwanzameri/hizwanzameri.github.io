@@ -5,6 +5,7 @@ import TimelineItem from '../components/timelineitem';
 
 const workExperiences = [
   {
+    year: "2019",
     title: "UI/UX Developer",
     subtitle: "Fulkrum Interactive Technology",
     startDate: "May 2019",
@@ -13,6 +14,7 @@ const workExperiences = [
     location: "Bertam, Kepala Batas, Pulau Pinang"
   },
   {
+    year: "2018",
     title: "Desktop Artist",
     subtitle: "SGK",
     startDate: "Apr 2018",
@@ -21,6 +23,7 @@ const workExperiences = [
     location: "Penang, Malaysia"
   },
   {
+    year: "2017",
     title: "Interactive Designer",
     subtitle: "Fulkrum Interactive Technology",
     startDate: "Jul 2014",
@@ -29,6 +32,7 @@ const workExperiences = [
     location: "Bertam, Kepala Batas, Pulau Pinang"
   },
   {
+    year: "2012",
     title: "Intern (IT Technician)",
     subtitle: "Privilege Computer Center",
     startDate: "Jan 2012",
@@ -76,7 +80,7 @@ export default function Experience() {
                 <TimelineItem
                   key={i}
                   index={i}
-                  icon="/work.svg"
+                  year={data.year}
                   title={data.title}
                   subtitle={data.subtitle}
                   startDate={data.startDate}

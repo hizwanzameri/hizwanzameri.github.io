@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
+    // Omit output: 'export' so API routes (e.g. /api/spotify) work. Deploy to Vercel for full app.
     images: { unoptimized: true }
 };
 

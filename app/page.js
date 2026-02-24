@@ -16,6 +16,8 @@ import ShinyCard from "./components/shinycard";
 import QuickButtons from "./components/quickbuttons";
 import ShinyAnim from "./components/shinyanim";
 import HighlightCard from "./components/highlightcard";
+import SpotifyWidget from "./components/widgets/spotify";
+import GitHubContributionsWidget from "./components/widgets/github_contributions";
 import Link from "next/link";
 import DarkTooltip from "./components/darktooltip";
 import MobileNavbar from "./components/mobilenavbar";
@@ -431,7 +433,14 @@ export default function Home() {
           </div>
         </div>
         <HighlightCard title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." minutesToRead="5" />
-        {/* <ImageCard image="/profile-1.png" title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." /> */}
+        <div className="flex flex-col gap-2 w-full">
+          <span className="section-title-text">Spotify</span>
+          <SpotifyWidget />
+        </div>
+        <div className="flex flex-col gap-2 w-full">
+          <span className="section-title-text">GitHub</span>
+          <GitHubContributionsWidget />
+        </div>
         <div className="flex flex-col gap-2 w-full">
           <span className="section-title-text">CONNECT</span>
           <div className="flex flex-row gap-2 items-center">
