@@ -354,10 +354,32 @@ const Popup = ({ children, active, close }) => {
   )
 }
 
+const ProjectCard = ({ title, description, image = "/close-menu-btn.png" }) => {
+  return (
+    <ShinyCard icon={image} title={title} description={description} />
+  )
+}
+
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false)
   const [pageId, setPageId] = useState('myprofile')
-
+  const projects = [
+    {
+      title: "SolatStat",
+      description: "Muslim habit tracker app that allows you to track your daily prayer habits and goals.",
+      image: "/solatstat-logo-dark.png"
+    },
+    {
+      title: "Memosnap Photobooth",
+      description: "A photobooth app that allows you to take photos and share them with your friends.",
+      image: "/close-menu-btn.png"
+    },
+    {
+      title: "Memostory",
+      description: "A memosnap app that allows you to create and share memos with your friends.",
+      image: "/close-menu-btn.png"
+    }
+  ]
   return (
 <>
         <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-4 justify-start items-start mb-10 w-full">
@@ -400,10 +422,12 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-2 w-full">
           <span className="section-title-text">Featured Projects</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <ShinyCard icon="/close-menu-btn.png" title="Project 1" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-          <ShinyCard icon="/close-menu-btn.png" title="Project 2" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-          <ShinyCard icon="/close-menu-btn.png" title="Project 3" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <div className="flex flex-nowrap overflow-x-auto overflow-y-hidden gap-3 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:pb-0">
+            {projects.map((project, index) => (
+              <div key={index} className="flex-shrink-0 w-[75vw] min-w-[260px] sm:w-auto sm:min-w-0 sm:flex-shrink">
+                <ProjectCard title={project.title} description={project.description} image={project.image} />
+              </div>
+            ))}
           </div>
         </div>
         <HighlightCard title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." minutesToRead="5" />

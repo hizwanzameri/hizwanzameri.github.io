@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const ShinyCard = ({ title, description, icon }) => {
     return (
-        <div className="shiny-card w-full card-radius shadow-lg">
+        <div className="shiny-card w-full card-radius shadow-lg h-100">
             <div className="shiny-stroke-mask card-radius">
                 <ShinyAnim index={0} />
             </div>
