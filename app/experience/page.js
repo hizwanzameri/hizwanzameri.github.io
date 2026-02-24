@@ -5,7 +5,7 @@ import TimelineItem from '../components/timelineitem';
 
 const workExperiences = [
   {
-    year: "2019",
+    year: "2026",
     title: "UI/UX Developer",
     subtitle: "Fulkrum Interactive Technology",
     startDate: "May 2019",
