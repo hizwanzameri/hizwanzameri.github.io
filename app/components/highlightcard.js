@@ -8,9 +8,9 @@ const HighlightCard = ({ title, description, minutesToRead }) => {
             <div className="flex flex-col gap-2 items-start w-full">
                 <span className="section-title-text">Highlight</span>
                 <div className="flex flex-row gap-2 items-center mt-50">
-               <TagBadge tagname={"Experimental"} />
-               <TagBadge tagname={"AI"} />
+               <TagBadge tagname={"LiDAR"} />
                <TagBadge tagname={"Raspberry Pi"} />
+               <TagBadge tagname={"Hobby Project"} />
                </div>
                <span className="card-title-text gradient-text">{title}</span>
                <span className="card-body-text">{description}</span>

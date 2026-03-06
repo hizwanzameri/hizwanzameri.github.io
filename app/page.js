@@ -377,8 +377,8 @@ export default function Home() {
       image: "/close-menu-btn.png"
     },
     {
-      title: "Memostory",
-      description: "A memosnap app that allows you to create and share memos with your friends.",
+      title: "MYTren",
+      description: "A train tracking app that allows you to track your train journey and get real-time updates.",
       image: "/close-menu-btn.png"
     }
   ]
@@ -432,7 +432,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <HighlightCard title="Highlight" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." minutesToRead="5" />
+        <HighlightCard title="Touchless Screen using LiDAR and Raspberry Pi" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." minutesToRead="5" />
         <div className="flex flex-col gap-2 w-full">
           <span className="section-title-text">Spotify</span>
           <SpotifyWidget />
