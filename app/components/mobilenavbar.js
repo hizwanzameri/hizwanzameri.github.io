@@ -1,21 +1,53 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { gsap } from 'gsap';
 import ShinyAnim from './shinyanim';
 import DarkTooltip from './darktooltip';
 import MobileMenu from './mobilemenu';
 
+const pressHandlers = {
+    onContextMenu: (e) => e.preventDefault(),
+    onMouseDown: (e) => {
+        gsap.to(e.currentTarget, { scale: 1.2, duration: 0.1 });
+    },
+    onMouseUp: (e) => {
+        gsap.to(e.currentTarget, { scale: 1, duration: 0.1 });
+    },
+    onMouseLeave: (e) => {
+        gsap.to(e.currentTarget, { scale: 1, duration: 0.1 });
+    },
+};
+
+const btnStyle = {
+    width: '54px',
+    height: '54px',
+    flexShrink: 0,
+    touchAction: 'manipulation',
+    userSelect: 'none',
+    WebkitTouchCallout: 'none',
+    WebkitUserSelect: 'none',
+    cursor: 'pointer',
+};
+
 const MobileNavbar = () => {
+    const router = useRouter();
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(!open);
+    };
+    const handleHome = () => {
+        setOpen(false);
+        router.push('/');
+    };
+    const handleContact = () => {
+        window.location.href = 'mailto:hizwanzameri@gmail.com';
     };
 
     const containerRef = useRef(null);
     const outerContainerRef = useRef(null);
     const innerContentRef = useRef(null);
-    const themeBtnRef = useRef(null);
     const homeBtnRef = useRef(null);
     const contactBtnRef = useRef(null);
     const menuBtnRef = useRef(null);
@@ -51,7 +83,7 @@ const MobileNavbar = () => {
     }, [open]);
 
     useEffect(() => {
-        const buttons = [themeBtnRef.current, homeBtnRef.current, contactBtnRef.current].filter(Boolean);
+        const buttons = [homeBtnRef.current, contactBtnRef.current].filter(Boolean);
         
         const updateContainerWidth = () => {
             if (containerRef.current && innerContentRef.current) {
@@ -231,39 +263,28 @@ const MobileNavbar = () => {
                 <ShinyAnim index={0} />
             </div>
             <div ref={innerContentRef} className="flex flex-row gap-2 items-center justify-center gradient-text">
-                <div ref={themeBtnRef} style={{ width: '54px', height: '54px', flexShrink: 0 }}>
-                    <Image src="/theme-btn.png" alt="theme toggle button" width={54} height={54} />
-                </div>
-                <div ref={homeBtnRef} style={{ width: '54px', height: '54px', flexShrink: 0 }}>
+                <div
+                    ref={homeBtnRef}
+                    onClick={handleHome}
+                    style={btnStyle}
+                    {...pressHandlers}
+                >
                     <Image src="/home-btn.png" alt="home button" width={54} height={54} />
                 </div>
-                <div ref={contactBtnRef} style={{ width: '54px', height: '54px', flexShrink: 0 }}>
+                <div
+                    ref={contactBtnRef}
+                    onClick={handleContact}
+                    style={btnStyle}
+                    {...pressHandlers}
+                >
                     <Image src="/contact-btn.png" alt="contact button" width={54} height={54} />
                 </div>
                 <div 
                     ref={menuBtnRef}
                     className="z-100" 
                     onClick={handleOpen}
-                    style={{
-                        width: '54px',
-                        height: '54px',
-                        flexShrink: 0,
-                        touchAction: 'manipulation',
-                        userSelect: 'none',
-                        WebkitTouchCallout: 'none',
-                        WebkitUserSelect: 'none',
-                        cursor: 'pointer'
-                    }}
-                    onContextMenu={(e) => e.preventDefault()}
-                    onMouseDown={(e) => {
-                        gsap.to(e.currentTarget, { scale: 1.2, duration: 0.1 });
-                    }}
-                    onMouseUp={(e) => {
-                        gsap.to(e.currentTarget, { scale: 1, duration: 0.1 });
-                    }}
-                    onMouseLeave={(e) => {
-                        gsap.to(e.currentTarget, { scale: 1, duration: 0.1 });
-                    }}
+                    style={btnStyle}
+                    {...pressHandlers}
                 >
                 {open ? <Image src="/close-menu-btn.png" className="cursor-pointer z-100" alt="close menu button" width={54} height={54}/> : <Image src="/menu-btn.png" className="cursor-pointer z-100" alt="menu button" width={54} height={54}/>}
                 </div>

@@ -1,7 +1,17 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-const TimelineItem = ({ index, year = "2024", icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
+const TimelineItem = ({
+  index,
+  year = "2024",
+  title = 'Assignment 1',
+  subtitle = "20/1/2024",
+  startDate = "N/A",
+  endDate = "",
+  duration = "",
+  location = "N/A",
+  highlights = [],
+  end = false,
+}) => {
     return (
       <motion.div
         key={index}
@@ -20,14 +30,20 @@ const TimelineItem = ({ index, year = "2024", icon = "/file-check.svg", title = 
             ></motion.div>
           }
         </div>
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col gap-1 pb-6">
           <h1 className="font-bold">{title}</h1>
           <span className="text-sm">{subtitle}</span>
-          <span className="text-xs">{startDate} - {endDate} · {duration}</span>
+          <span className="text-xs">{startDate} - {endDate}{duration ? ` · ${duration}` : ""}</span>
           <div className="text-xs">{location}</div>
+          {highlights.length > 0 && (
+            <ul className="mt-2 flex flex-col gap-1.5 list-disc pl-4 text-sm text-white/80">
+              {highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </motion.div>
-  
     )
   }
 

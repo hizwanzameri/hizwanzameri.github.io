@@ -5,9 +5,9 @@ import { gsap } from 'gsap';
 
 const textArray = [
     "Hi, I'm Hizwan. Welcome to my website!",
-    "I am passionate about creating user-friendly and efficient interfaces.",
-    "Currently, I am working as a UI Developer at Fulkrum Interactive Technology.",
-    "and I also love to travel and capture the beauty of the world."
+    "I'm a UI/UX developer focused on React and responsive web applications.",
+    "Currently UI/UX Developer at Fulkrum Interactive in Penang.",
+    "I turn business needs into clear, usable interfaces with cross-functional teams."
 ];
 
 const AboutMeCard = () => {

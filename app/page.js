@@ -13,15 +13,13 @@ import AboutMeCard from "./components/aboutmecard";
 import AIButton from "./components/aibutton";
 import Navbar from "./components/navbar";
 import ShinyCard from "./components/shinycard";
-import QuickButtons from "./components/quickbuttons";
 import ShinyAnim from "./components/shinyanim";
-import HighlightCard from "./components/highlightcard";
-import SpotifyWidget from "./components/widgets/spotify";
 import GitHubContributionsWidget from "./components/widgets/github_contributions";
 import Link from "next/link";
 import DarkTooltip from "./components/darktooltip";
 import MobileNavbar from "./components/mobilenavbar";
 import AnimatedText from "./components/animatedtext";
+import { selectedProjects } from "./data/projects";
 
 const TimelineItem = ({ index, icon = "/file-check.svg", title = 'Assignment 1', subtitle = "20/1/2024", startDate = "N/A", endDate = "", duration = "", location = "N/A", end = false }) => {
   return (
@@ -356,32 +354,17 @@ const Popup = ({ children, active, close }) => {
   )
 }
 
-const ProjectCard = ({ title, description, image = "/close-menu-btn.png" }) => {
+const ProjectCard = ({ title, description, href }) => {
   return (
-    <ShinyCard icon={image} title={title} description={description} />
+    <Link href={href} className="block w-full h-full">
+      <ShinyCard title={title} description={description} cta="Read more" />
+    </Link>
   )
 }
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false)
   const [pageId, setPageId] = useState('myprofile')
-  const projects = [
-    {
-      title: "SolatStat",
-      description: "Muslim habit tracker app that allows you to track your daily prayer habits and goals.",
-      image: "/solatstat-logo-dark.png"
-    },
-    {
-      title: "Memosnap Photobooth",
-      description: "A photobooth app that allows you to take photos and share them with your friends.",
-      image: "/close-menu-btn.png"
-    },
-    {
-      title: "MYTren",
-      description: "A train tracking app that allows you to track your train journey and get real-time updates.",
-      image: "/close-menu-btn.png"
-    }
-  ]
   return (
 <>
         <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-4 justify-start items-start mb-10 w-full">
@@ -410,32 +393,28 @@ export default function Home() {
               ease: 'power2.out'
             }}
           >
-            I code and design user interfaces
+            UI/UX Developer — React and responsive interfaces
           </AnimatedText>
-          <span className="text-lg gradient-text mt-3">UI Developer at Fulkrum</span>
+          <span className="text-lg gradient-text mt-3">UI/UX Developer at Fulkrum Interactive</span>
+          <p className="mt-4 max-w-xl text-left text-[15px] leading-7 text-white/80">
+            I design and build interfaces that turn complex workflows into clear, usable experiences — from industrial operations dashboards to product-facing web apps, working across design, front-end development, and stakeholder collaboration.
+          </p>
         </div>
         <AboutMeCard/>
         </div>
-        <div className="flex flex-col gap-2">
-          <span className="section-title-text">Currently</span>
-          <span className="text-md">
-            Working as a UI Developer at Fulkrum Interactive Technology. Supported key projects UIs and core software development ranging from web application to mobile.
-          </span>
-        </div>
         <div className="flex flex-col gap-2 w-full">
-          <span className="section-title-text">Featured Projects</span>
-          <div className="flex flex-nowrap overflow-x-auto overflow-y-hidden gap-3 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:pb-0">
-            {projects.map((project, index) => (
-              <div key={index} className="flex-shrink-0 w-[75vw] min-w-[260px] sm:w-auto sm:min-w-0 sm:flex-shrink">
-                <ProjectCard title={project.title} description={project.description} image={project.image} />
+          <span className="section-title-text">Selected Work</span>
+          <div className="flex flex-nowrap overflow-x-auto overflow-y-hidden gap-3 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0">
+            {selectedProjects.map((project) => (
+              <div key={project.id} className="flex-shrink-0 w-[75vw] min-w-[260px] sm:w-auto sm:min-w-0 sm:flex-shrink">
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  href={`/work#${project.id}`}
+                />
               </div>
             ))}
           </div>
-        </div>
-        <HighlightCard title="Touchless Screen using LiDAR and Raspberry Pi" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." minutesToRead="5" />
-        <div className="flex flex-col gap-2 w-full">
-          <span className="section-title-text">Spotify</span>
-          <SpotifyWidget />
         </div>
         <div className="flex flex-col gap-2 w-full">
           <span className="section-title-text">GitHub</span>

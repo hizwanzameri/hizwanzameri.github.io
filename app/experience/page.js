@@ -5,40 +5,61 @@ import TimelineItem from '../components/timelineitem';
 
 const workExperiences = [
   {
-    year: "2026",
+    year: "2023",
     title: "UI/UX Developer",
-    subtitle: "Fulkrum Interactive Technology",
-    startDate: "May 2019",
+    subtitle: "Fulkrum Interactive",
+    startDate: "Jan 2023",
     endDate: "Present",
-    duration: "5 years 9 months",
-    location: "Bertam, Kepala Batas, Pulau Pinang"
+    duration: "3+ years",
+    location: "Penang, Malaysia",
+    highlights: [
+      "Design and refine responsive interfaces for enterprise web and mobile systems from operational workflows and stakeholder feedback.",
+      "Contribute to front-end implementation with React.js, JavaScript, HTML and CSS while coordinating with back-end developers.",
+      "Create reusable UI patterns, wireframes, prototypes and interface specifications across application modules.",
+      "Support data-intensive dashboards and tracking apps with real-time statuses, filtering and visualisation; assist deployment and production troubleshooting.",
+    ],
+  },
+  {
+    year: "2019",
+    title: "Interactive Developer",
+    subtitle: "Fulkrum Interactive",
+    startDate: "May 2019",
+    endDate: "Jan 2023",
+    duration: "3 years 8 months",
+    location: "Penang, Malaysia",
+    highlights: [
+      "Developed responsive web and mobile interfaces and converted approved designs into functional front-end experiences.",
+      "Integrated user interfaces with application data through JSON and API-based interactions.",
+      "Built prototypes and proof-of-concept interfaces to validate workflows and feasibility before full implementation.",
+      "Supported testing, defect resolution and iterative improvements from stakeholder and end-user feedback.",
+    ],
   },
   {
     year: "2018",
     title: "Desktop Artist",
-    subtitle: "SGK",
+    subtitle: "Schawk!",
     startDate: "Apr 2018",
     endDate: "Feb 2019",
     duration: "11 months",
-    location: "Penang, Malaysia"
+    location: "Penang, Malaysia",
+    highlights: [
+      "Adapted high-volume packaging artwork to detailed client and production specifications while maintaining brand standards.",
+      "Worked in a quality-controlled, deadline-driven environment with close attention to detail and disciplined file management.",
+    ],
   },
   {
-    year: "2017",
+    year: "2014",
     title: "Interactive Designer",
-    subtitle: "Fulkrum Interactive Technology",
+    subtitle: "Fulkrum Interactive Media",
     startDate: "Jul 2014",
     endDate: "Nov 2017",
-    duration: "3 years 5 months",
-    location: "Bertam, Kepala Batas, Pulau Pinang"
-  },
-  {
-    year: "2012",
-    title: "Intern (IT Technician)",
-    subtitle: "Privilege Computer Center",
-    startDate: "Jan 2012",
-    endDate: "May 2012",
-    duration: "5 months",
-    location: "Perak, Malaysia"
+    duration: "3 years 4 months",
+    location: "Kepala Batas, Penang",
+    highlights: [
+      "Created graphic designs and front-end interfaces for web and mobile projects using Adobe Creative Cloud, HTML, CSS and JavaScript.",
+      "Produced wireframes, mock-ups, responsive layouts and interactive concepts with development teams.",
+      "Converted business requirements into clear visual solutions for digital products and client presentations.",
+    ],
   },
 ]
 
@@ -71,7 +92,7 @@ export default function Experience() {
               ease: 'power2.out'
             }}
           >
-            Here are some of my work experiences
+            Roles across UI/UX, interactive development and design
           </AnimatedText>
         </div>
         </div>
@@ -87,6 +108,7 @@ export default function Experience() {
                   endDate={data.endDate}
                   duration={data.duration}
                   location={data.location}
+                  highlights={data.highlights}
                   end={i == workExperiences.length - 1}
                 />
               )}
