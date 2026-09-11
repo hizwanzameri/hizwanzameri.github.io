@@ -115,7 +115,7 @@ export default function PillStrokeAnimated({
         height={h}
         rx={rx}
         fill="none"
-        stroke={`url(#${`${gradId}-stroke`)}`}
+        stroke={`url(#${gradId}-stroke)`}
         strokeWidth={sw}
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
